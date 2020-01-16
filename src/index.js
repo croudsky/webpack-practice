@@ -1,5 +1,6 @@
 import _ from 'lodash';
-import style from './style.css';
+import './style.css';
+import bear from './bear.png';
 
 function component() {
     const element = document.createElement('div');
@@ -10,3 +11,7 @@ function component() {
 
 document.body.appendChild(component());
 document.body.classList.add('haikei');
+
+const image = new Image();
+image.src = bear;
+document.body.appendChild(image);
