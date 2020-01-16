@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import './style.css';
-import './style.scss';
+import './style.sass';
 import bear from './bear.png';
 
 function component() {
