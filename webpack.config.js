@@ -18,6 +18,15 @@ module.exports = {
         ]
       },
       {
+        test: /\.s(a|c)ss$/,
+        // loader は、逆順で適用される
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
         test: /\.(jpe?g|png|gif|svg|ico)$/i,
         loader: 'url-loader',
         options: {
