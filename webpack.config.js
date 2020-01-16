@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const outputPath = path.resolve(__dirname, 'dist');
 
@@ -60,18 +61,23 @@ module.exports = {
       }),
       new MiniCssExtractPlugin({
         filename: '[name].[hash].css'
-      })
+      }),
   ],
   // 最適化
   optimization: {
-    minimizer: [new UglifyJsPlugin({
-      uglifyOptions: {
-        ie8: true,
-        compress: {
-          // consoleを削除
-          drop_console: true
-        }
-      }
-    })]
+    minimizer: [
+        new UglifyJsPlugin({
+          uglifyOptions: {
+            ie8: true,
+            cache: true,
+            parallel: true,
+            compress: {
+              // consoleを削除
+              drop_console: true
+            }
+          }
+        }),
+        new OptimizeCssAssetsPlugin({})
+    ]
   }
 };

@@ -82,10 +82,7 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist/*.js
-dist/*.css
-dist/*.png
-dist/*.jpg
+dist/*
 
 # Gatsby files
 .cache/
@@ -208,3 +205,4 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+dist/
